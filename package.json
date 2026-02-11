@@ -17,7 +17,11 @@
     "@sanity/client": "^6.0.0",
     "@sanity/functions": "^1.2.0",
     "@sanity/image-url": "^1.1.0",
-    "sanity": "^5.5.0"
+    "@sanity/vision": "^3.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanity": "^5.5.0",
+    "styled-components": "^6.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
