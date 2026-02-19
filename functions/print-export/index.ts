@@ -77,8 +77,11 @@ export const handler = documentEventHandler(async ({ context, event }) => {
         _type: 'object',
         exportedAt: new Date().toISOString(),
         xmlAsset: {
-          _type: 'reference',
-          _ref: asset._id,
+          _type: 'file',
+          asset: {
+            _type: 'reference',
+            _ref: asset._id,
+          },
         },
       },
     })
