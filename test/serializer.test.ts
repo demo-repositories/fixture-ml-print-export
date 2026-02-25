@@ -351,7 +351,7 @@ describe('portableTextToInDesignXML', () => {
   describe('mixed content', () => {
     it('serializes a realistic article body', () => {
       const blocks: BodyBlock[] = [
-        makeTextBlock('The Grand Cayman economy grew 5% this quarter.', {
+        makeTextBlock('The regional economy grew 5% this quarter.', {
           style: 'normal',
         }),
         makeTextBlock('Key Findings', { style: 'h2', _key: 'b2' }),

@@ -1,4 +1,4 @@
-# Caymanian Journal — Print Export Pipeline
+# Sanity Print Export Pipeline
 
 Sanity Function that automatically generates InDesign-compatible XML when an article is published with "Ready for Print" checked.
 

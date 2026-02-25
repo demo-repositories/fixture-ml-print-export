@@ -13,7 +13,7 @@ const mockBuilder: ImageUrlBuilder = {
       quality(_q: number) { return this; },
       fit(_mode: string) { return this; },
       url() {
-        return `https://cdn.sanity.io/images/cayjournal/production/${assetId}-1200x800-jpg?q=100&fit=max`;
+        return `https://cdn.sanity.io/images/example/production/${assetId}-1200x800-jpg?q=100&fit=max`;
       },
     };
   },
@@ -28,7 +28,7 @@ const sampleBody: BodyBlock[] = [
       {
         _type: 'span',
         _key: 's1',
-        text: 'The Cayman Islands economy posted a ',
+        text: 'The regional economy posted a ',
         marks: [],
       },
       {
@@ -69,13 +69,13 @@ const sampleBody: BodyBlock[] = [
       {
         _type: 'span',
         _key: 's6',
-        text: 'Cayman Islands Department of Tourism',
+        text: 'Department of Tourism',
         marks: ['em'],
       },
       {
         _type: 'span',
         _key: 's7',
-        text: ' attributed the growth to expanded airlift from major US hubs and the opening of two new luxury resorts on Seven Mile Beach.',
+        text: ' attributed the growth to expanded airlift from major hubs and the opening of two new luxury resorts along the coast.',
         marks: [],
       },
     ],
@@ -85,12 +85,12 @@ const sampleBody: BodyBlock[] = [
     _type: 'image',
     _key: 'img1',
     asset: {
-      _id: 'image-seven-mile-beach-abc123',
-      url: 'https://cdn.sanity.io/images/cayjournal/production/image-seven-mile-beach-abc123.jpg',
+      _id: 'image-coastal-sunset-abc123',
+      url: 'https://cdn.sanity.io/images/example/production/image-coastal-sunset-abc123.jpg',
       metadata: { dimensions: { width: 2400, height: 1600 } },
     },
-    caption: 'Seven Mile Beach at sunset, with the new Ritz-Carlton extension visible in the background.',
-    credit: 'Photo: James Bodden / Caymanian Journal',
+    caption: 'Coastal view at sunset, with the new resort extension visible in the background.',
+    credit: 'Photo: Jane Smith / Sample News',
   },
   {
     _type: 'block',
@@ -137,7 +137,7 @@ const sampleBody: BodyBlock[] = [
       {
         _type: 'span',
         _key: 's11',
-        text: 'The financial services sector contributed an estimated CI$1.8 billion to GDP, with fund administration and insurance-linked securities showing particular strength. Key highlights include:',
+        text: 'The financial services sector contributed an estimated $1.8 billion to GDP, with fund administration and insurance-linked securities showing particular strength. Key highlights include:',
         marks: [],
       },
     ],
@@ -182,7 +182,7 @@ const sampleBody: BodyBlock[] = [
       {
         _type: 'span',
         _key: 's14',
-        text: 'Insurance-linked securities market grew to US$12.4 billion',
+        text: 'Insurance-linked securities market grew to $12.4 billion',
         marks: ['strong'],
       },
     ],
@@ -193,7 +193,7 @@ const sampleBody: BodyBlock[] = [
 const xml = buildArticleXML(
   {
     _id: 'article-q4-economy-2025',
-    headline: 'Cayman Economy Posts Record Q4 Growth',
+    headline: 'Regional Economy Posts Record Q4 Growth',
     deck: 'Tourism surge and financial services strength drive 5.2% expansion in final quarter of 2025',
     section: 'business',
     priority: 1,
@@ -202,15 +202,15 @@ const xml = buildArticleXML(
       asset: {
         metadata: { dimensions: { width: 3000, height: 2000 } },
       },
-      caption: 'George Town financial district skyline.',
-      credit: 'Photo: Caymanian Journal Archive',
+      caption: 'Downtown financial district skyline.',
+      credit: 'Photo: Sample News Archive',
     },
     body: sampleBody,
   },
   {
     imageUrlBuilder: mockBuilder,
     heroImageUrl:
-      'https://cdn.sanity.io/images/cayjournal/production/image-george-town-skyline-def456-3000x2000-jpg?q=100&fit=max&cs=cmyk',
+      'https://cdn.sanity.io/images/example/production/image-downtown-skyline-def456-3000x2000-jpg?q=100&fit=max&cs=cmyk',
   },
 );
 

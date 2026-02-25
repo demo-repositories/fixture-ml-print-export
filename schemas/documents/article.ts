@@ -1,5 +1,5 @@
 /**
- * Article schema for The Caymanian Journal.
+ * Article schema for print export.
  *
  * This extends a typical news article schema with printSettings —
  * fields that control the Sanity → InDesign print export pipeline.

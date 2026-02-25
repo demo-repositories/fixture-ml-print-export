@@ -9,15 +9,16 @@
  * Deploy with: `sanity blueprints deploy`
  */
 
-import { defineBlueprint, defineDocumentFunction } from '@sanity/blueprints';
+import { defineBlueprint, defineDocumentFunction } from "@sanity/blueprints";
 
 export default defineBlueprint({
+  blueprintVersion: "2024-10-01",
   resources: [
     defineDocumentFunction({
-      name: 'print-export',
+      name: "print-export",
       event: {
-        on: ['publish'],
-        filter: '_type == "article" && printSettings.printReady == true',
+        on: ["create", "update"],
+        filter: '_type == "article" && printSettings.printReady == true && !defined(printSettings.lastExport.xmlAsset)',
         projection: '{_id, title, "section": printSettings.printSection}',
       },
     }),
