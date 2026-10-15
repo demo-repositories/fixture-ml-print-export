@@ -15,11 +15,6 @@
     "rootDir": ".",
     "types": ["node"]
   },
-  "include": [
-    "functions/**/*.ts",
-    "schemas/**/*.ts",
-    "test/**/*.ts",
-    "sanity.blueprint.ts"
-  ],
+  "include": ["functions/**/*.ts", "schemas/**/*.ts", "test/**/*.ts", "sanity.blueprint.ts"],
   "exclude": ["node_modules", "dist"]
 }

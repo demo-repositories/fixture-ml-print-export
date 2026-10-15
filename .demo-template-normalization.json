@@ -1,0 +1,74 @@
+{
+  "actionIds": [
+    "action:c4f20218108a955b9f0b",
+    "action:35f192759ffe28a14d0e",
+    "action:acdb2d767cd8a55107f5",
+    "action:8fef71c8eb436e153cb1",
+    "action:6b7c99a01a64411dfe08",
+    "action:0dc35c8e6e27dd382557",
+    "action:cdf61a2f2abb5ad3b901",
+    "action:1f64c2e49e1c8f50c863",
+    "action:34a99138c0da7900fbe5",
+    "action:db008d29c3da282effcf",
+    "action:86be3cde08d0c1dd1b24",
+    "action:5516238bed749dc4bcdf",
+    "action:79e23a427025ad7ed5af",
+    "action:f7dd92519af4463df458",
+    "action:1834567dd60627bd1e72",
+    "action:179e4f04f2f82519fce5",
+    "action:4035a77ad16c3ebeea75",
+    "action:2809cc11ea7397280f22",
+    "action:2d1a720c021ba5fa5a4a",
+    "action:d5afa7e2e1c541ba56fc",
+    "action:176c66aa24fd49a96b61",
+    "action:08ca076922c1887f9aad",
+    "action:c3fa16e10898ff75578d"
+  ],
+  "attestationId": "attestation:df4d0edb1ecda81fbdf3",
+  "baselineDigest": "686f72baeb9dc8acd892f6b9f7ed80dfc66e4cdaee12f46e9581fcc5cd7ed9ad",
+  "baselineVersion": "2026.10.15.2",
+  "binding": {
+    "defaultBranch": "main",
+    "defaultHeadSha": "7b2f95d8ce251bb7268325c5d1f9ae0c5ef2082b",
+    "normalizationHeadSha": "7b2f95d8ce251bb7268325c5d1f9ae0c5ef2082b",
+    "repository": "demo-repositories/sanity-print-export"
+  },
+  "canonicalSurfaces": {
+    "sdkApps": [],
+    "studio": "apps/studio",
+    "web": null
+  },
+  "datasets": [
+    {
+      "alias": "primary",
+      "capabilities": [],
+      "envKeys": [
+        "NEXT_PUBLIC_SANITY_DATASET",
+        "SANITY_DATASET",
+        "SANITY_STUDIO_DATASET"
+      ],
+      "isPrimary": true,
+      "sourceDataset": "production",
+      "targetDataset": "production"
+    }
+  ],
+  "environmentBySurface": [
+    {
+      "keys": [],
+      "kind": "studio",
+      "surfaceId": "surface:868405e222d1286b92d6",
+      "targetDirectory": "apps/studio"
+    }
+  ],
+  "environmentKeys": [],
+  "functionBlueprints": [
+    "apps/studio/sanity.blueprint.ts"
+  ],
+  "kind": "baseline-attestation",
+  "planId": "plan:b3a6d175e266f877ff12",
+  "reportId": "report:4d899e4ca7d1d6c46555",
+  "resultingRepositoryHash": "9317f9b5f9c9bbcc2e5728cc51827e849e0cbf66dc36cbc44080cadadecf8188",
+  "schemaVersion": 2,
+  "sourceInventoryId": "inventory:b372ae69f6005b7c9883",
+  "sourceRepositoryHash": "f2cac20a8820ff4b1872ff972fb40e8f558eeea311775d1b0b9bcfae319a9720"
+}

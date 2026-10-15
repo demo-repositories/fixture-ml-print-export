@@ -56,9 +56,7 @@ function makeTextBlock(
   };
 }
 
-function makeImageBlock(
-  overrides: Partial<ImageBlock> = {},
-): ImageBlock {
+function makeImageBlock(overrides: Partial<ImageBlock> = {}): ImageBlock {
   return {
     _type: 'image',
     _key: 'img1',
@@ -112,34 +110,26 @@ describe('portableTextToInDesignXML', () => {
       ] as const;
 
       for (const [ptStyle, indesignStyle] of styles) {
-        const blocks: BodyBlock[] = [
-          makeTextBlock('Test', { style: ptStyle }),
-        ];
+        const blocks: BodyBlock[] = [makeTextBlock('Test', { style: ptStyle })];
         const xml = portableTextToInDesignXML(blocks, options);
         expect(xml).toContain(`aid:pstyle="${indesignStyle}"`);
       }
     });
 
     it('handles bullet list items', () => {
-      const blocks: BodyBlock[] = [
-        makeTextBlock('Item one', { listItem: 'bullet' }),
-      ];
+      const blocks: BodyBlock[] = [makeTextBlock('Item one', { listItem: 'bullet' })];
       const xml = portableTextToInDesignXML(blocks, options);
       expect(xml).toContain('aid:pstyle="List_Bullet"');
     });
 
     it('handles numbered list items', () => {
-      const blocks: BodyBlock[] = [
-        makeTextBlock('Step one', { listItem: 'number' }),
-      ];
+      const blocks: BodyBlock[] = [makeTextBlock('Step one', { listItem: 'number' })];
       const xml = portableTextToInDesignXML(blocks, options);
       expect(xml).toContain('aid:pstyle="List_Number"');
     });
 
     it('falls back to Body for unknown styles', () => {
-      const blocks: BodyBlock[] = [
-        makeTextBlock('Unknown', { style: 'some-custom-style' }),
-      ];
+      const blocks: BodyBlock[] = [makeTextBlock('Unknown', { style: 'some-custom-style' })];
       const xml = portableTextToInDesignXML(blocks, options);
       expect(xml).toContain('aid:pstyle="Body"');
     });
@@ -149,9 +139,7 @@ describe('portableTextToInDesignXML', () => {
     it('wraps bold text in inline with Bold cstyle', () => {
       const blocks: BodyBlock[] = [
         makeTextBlock('', {
-          children: [
-            { _type: 'span', _key: 's1', text: 'bold text', marks: ['strong'] },
-          ],
+          children: [{ _type: 'span', _key: 's1', text: 'bold text', marks: ['strong'] }],
         }),
       ];
       const xml = portableTextToInDesignXML(blocks, options);
@@ -161,9 +149,7 @@ describe('portableTextToInDesignXML', () => {
     it('wraps italic text in inline with Italic cstyle', () => {
       const blocks: BodyBlock[] = [
         makeTextBlock('', {
-          children: [
-            { _type: 'span', _key: 's1', text: 'italic text', marks: ['em'] },
-          ],
+          children: [{ _type: 'span', _key: 's1', text: 'italic text', marks: ['em'] }],
         }),
       ];
       const xml = portableTextToInDesignXML(blocks, options);
@@ -201,9 +187,7 @@ describe('portableTextToInDesignXML', () => {
               marks: ['link1'],
             },
           ],
-          markDefs: [
-            { _key: 'link1', _type: 'link', href: 'https://example.com' },
-          ],
+          markDefs: [{ _key: 'link1', _type: 'link', href: 'https://example.com' }],
         }),
       ];
       const xml = portableTextToInDesignXML(blocks, options);
@@ -255,9 +239,7 @@ describe('portableTextToInDesignXML', () => {
     });
 
     it('renders self-closing tag when no caption or credit', () => {
-      const blocks: BodyBlock[] = [
-        makeImageBlock({ caption: undefined, credit: undefined }),
-      ];
+      const blocks: BodyBlock[] = [makeImageBlock({ caption: undefined, credit: undefined })];
       const xml = portableTextToInDesignXML(blocks, options);
       expect(xml).toContain('<image');
       expect(xml).toContain('/>');
@@ -265,9 +247,7 @@ describe('portableTextToInDesignXML', () => {
     });
 
     it('emits comment for image block with missing asset', () => {
-      const blocks: BodyBlock[] = [
-        { _type: 'image', _key: 'img-broken', asset: undefined as any },
-      ];
+      const blocks: BodyBlock[] = [{ _type: 'image', _key: 'img-broken', asset: undefined as any }];
       const xml = portableTextToInDesignXML(blocks, options);
       expect(xml).toContain('<!-- Image block missing asset');
     });
@@ -340,9 +320,7 @@ describe('portableTextToInDesignXML', () => {
 
   describe('unknown block types', () => {
     it('emits a comment instead of silently dropping', () => {
-      const blocks: BodyBlock[] = [
-        { _type: 'dataTable', _key: 'dt1' } as any,
-      ];
+      const blocks: BodyBlock[] = [{ _type: 'dataTable', _key: 'dt1' } as any];
       const xml = portableTextToInDesignXML(blocks, options);
       expect(xml).toContain('<!-- Unsupported block type: dataTable');
     });
@@ -488,7 +466,7 @@ describe('buildArticleXML', () => {
         _id: 'art-4',
         headline: 'Tom & Jerry\'s "Adventure"',
         deck: 'A <special> deck',
-        author: { name: 'O\'Brien & Associates' },
+        author: { name: "O'Brien & Associates" },
         body: [makeTextBlock('Text with <html> & "quotes".')],
       },
       { ...options, heroImageUrl: undefined },
