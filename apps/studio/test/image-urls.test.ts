@@ -45,9 +45,15 @@ describe('buildPrintImageUrl', () => {
     const builder: ImageUrlBuilder = {
       image() {
         return {
-          quality() { return this; },
-          fit() { return this; },
-          url() { return 'https://cdn.sanity.io/images/proj/ds/img.jpg'; },
+          quality() {
+            return this;
+          },
+          fit() {
+            return this;
+          },
+          url() {
+            return 'https://cdn.sanity.io/images/proj/ds/img.jpg';
+          },
         };
       },
     };
@@ -58,20 +64,14 @@ describe('buildPrintImageUrl', () => {
 
 describe('buildOriginalDownloadUrl', () => {
   it('appends dlRaw=original to clean URL', () => {
-    const url = buildOriginalDownloadUrl(
-      'https://cdn.sanity.io/files/proj/ds/file-abc.tiff',
-    );
-    expect(url).toBe(
-      'https://cdn.sanity.io/files/proj/ds/file-abc.tiff?dlRaw=original',
-    );
+    const url = buildOriginalDownloadUrl('https://cdn.sanity.io/files/proj/ds/file-abc.tiff');
+    expect(url).toBe('https://cdn.sanity.io/files/proj/ds/file-abc.tiff?dlRaw=original');
   });
 
   it('appends with & when URL already has query params', () => {
     const url = buildOriginalDownloadUrl(
       'https://cdn.sanity.io/files/proj/ds/file-abc.tiff?token=xyz',
     );
-    expect(url).toBe(
-      'https://cdn.sanity.io/files/proj/ds/file-abc.tiff?token=xyz&dlRaw=original',
-    );
+    expect(url).toBe('https://cdn.sanity.io/files/proj/ds/file-abc.tiff?token=xyz&dlRaw=original');
   });
 });

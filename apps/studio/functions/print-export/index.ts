@@ -12,18 +12,18 @@
  * 5. Patch article with reference to the generated XML + timestamp
  */
 
-import { documentEventHandler } from "@sanity/functions";
-import { createClient } from "@sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
-import { PRINT_ARTICLE_QUERY } from "./queries.js";
-import { buildArticleXML } from "./serializer.js";
-import { buildPrintImageUrl } from "./image-urls.js";
-import type { PrintArticle } from "./types.js";
+import { documentEventHandler } from '@sanity/functions';
+import { createClient } from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
+import { PRINT_ARTICLE_QUERY } from './queries.js';
+import { buildArticleXML } from './serializer.js';
+import { buildPrintImageUrl } from './image-urls.js';
+import type { PrintArticle } from './types.js';
 
 export const handler = documentEventHandler(async ({ context, event }) => {
   const client = createClient({
     ...context.clientOptions,
-    apiVersion: "2026-02-10",
+    apiVersion: '2026-02-10',
     useCdn: false, // Always read from Content Lake, not CDN cache
   });
 
@@ -57,13 +57,13 @@ export const handler = documentEventHandler(async ({ context, event }) => {
   });
 
   // 5. Upload XML as a Sanity file asset
-  const xmlBuffer = Buffer.from(xmlContent, "utf-8");
+  const xmlBuffer = Buffer.from(xmlContent, 'utf-8');
   const slug = article.slug?.current ?? article._id;
   const filename = `print-${slug}-${Date.now()}.xml`;
 
-  const asset = await client.assets.upload("file", xmlBuffer, {
+  const asset = await client.assets.upload('file', xmlBuffer, {
     filename,
-    contentType: "application/xml",
+    contentType: 'application/xml',
   });
 
   console.log(`✅ XML uploaded as asset: ${asset._id} (${filename})`);
@@ -72,13 +72,13 @@ export const handler = documentEventHandler(async ({ context, event }) => {
   await client
     .patch(article._id)
     .set({
-      "printSettings.lastExport": {
-        _type: "object",
+      'printSettings.lastExport': {
+        _type: 'object',
         exportedAt: new Date().toISOString(),
         xmlAsset: {
-          _type: "file",
+          _type: 'file',
           asset: {
-            _type: "reference",
+            _type: 'reference',
             _ref: asset._id,
           },
         },
@@ -87,7 +87,5 @@ export const handler = documentEventHandler(async ({ context, event }) => {
     .commit();
 
   console.log(`✅ Print export complete for: ${article.headline}`);
-  console.log(
-    `   Section: ${article.section ?? "(none)"}, Priority: ${article.priority ?? 1}`,
-  );
+  console.log(`   Section: ${article.section ?? '(none)'}, Priority: ${article.priority ?? 1}`);
 });

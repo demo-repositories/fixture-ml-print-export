@@ -19,15 +19,8 @@ import type { ImageUrlBuilder } from './types.js';
  * Uses @sanity/image-url to respect crop/hotspot settings,
  * then appends CMYK color space (not exposed by the builder API).
  */
-export function buildPrintImageUrl(
-  builder: ImageUrlBuilder,
-  imageRef: unknown,
-): string {
-  const url = builder
-    .image(imageRef)
-    .quality(100)
-    .fit('max')
-    .url();
+export function buildPrintImageUrl(builder: ImageUrlBuilder, imageRef: unknown): string {
+  const url = builder.image(imageRef).quality(100).fit('max').url();
 
   // @sanity/image-url doesn't expose a .colorSpace() method,
   // so we append cs=cmyk manually to the query string.

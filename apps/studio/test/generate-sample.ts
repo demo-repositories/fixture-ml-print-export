@@ -10,8 +10,12 @@ const mockBuilder: ImageUrlBuilder = {
   image(source: any) {
     const assetId = source?.asset?._id ?? 'image-unknown';
     return {
-      quality(_q: number) { return this; },
-      fit(_mode: string) { return this; },
+      quality(_q: number) {
+        return this;
+      },
+      fit(_mode: string) {
+        return this;
+      },
       url() {
         return `https://cdn.sanity.io/images/example/production/${assetId}-1200x800-jpg?q=100&fit=max`;
       },
@@ -50,9 +54,7 @@ const sampleBody: BodyBlock[] = [
     _type: 'block',
     _key: 'b2',
     style: 'h2',
-    children: [
-      { _type: 'span', _key: 's4', text: 'Tourism Leads the Way', marks: [] },
-    ],
+    children: [{ _type: 'span', _key: 's4', text: 'Tourism Leads the Way', marks: [] }],
     markDefs: [],
   },
   {
@@ -124,9 +126,7 @@ const sampleBody: BodyBlock[] = [
     _type: 'block',
     _key: 'b6',
     style: 'h2',
-    children: [
-      { _type: 'span', _key: 's10', text: 'Financial Services Remain Strong', marks: [] },
-    ],
+    children: [{ _type: 'span', _key: 's10', text: 'Financial Services Remain Strong', marks: [] }],
     markDefs: [],
   },
   {

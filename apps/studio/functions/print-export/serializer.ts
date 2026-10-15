@@ -59,10 +59,7 @@ const CHARACTER_STYLES: Record<string, string> = {
  * Returns the inner XML content (no root element or XML declaration).
  * The caller wraps this in the full document structure.
  */
-export function portableTextToInDesignXML(
-  blocks: BodyBlock[],
-  options: SerializerOptions,
-): string {
+export function portableTextToInDesignXML(blocks: BodyBlock[], options: SerializerOptions): string {
   const parts: string[] = [];
 
   for (const block of blocks) {
@@ -81,7 +78,9 @@ export function portableTextToInDesignXML(
         break;
       default:
         // Don't silently drop content — make it visible that something was skipped
-        parts.push(`  <!-- Unsupported block type: ${escapeXML(block._type)} (key: ${escapeXML(block._key)}) -->`);
+        parts.push(
+          `  <!-- Unsupported block type: ${escapeXML(block._type)} (key: ${escapeXML(block._key)}) -->`,
+        );
         break;
     }
   }
@@ -93,8 +92,8 @@ export function portableTextToInDesignXML(
 
 function serializeTextBlock(block: PortableTextBlock): string {
   const style = block.listItem
-    ? LIST_STYLES[block.listItem] ?? 'List_Bullet'
-    : PARAGRAPH_STYLES[block.style ?? 'normal'] ?? 'Body';
+    ? (LIST_STYLES[block.listItem] ?? 'List_Bullet')
+    : (PARAGRAPH_STYLES[block.style ?? 'normal'] ?? 'Body');
 
   const content = serializeSpans(block.children, block.markDefs);
 
@@ -112,7 +111,9 @@ function serializeImageBlock(block: ImageBlock, options: SerializerOptions): str
   const attrs = [
     `href="${escapeXML(printUrl)}"`,
     dims ? `width="${dims.width}" height="${dims.height}"` : '',
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const children: string[] = [];
   if (block.caption) {
@@ -150,9 +151,7 @@ function serializeCalloutBlock(block: CalloutBlock, options: SerializerOptions):
   // Callout body is nested Portable Text — serialize recursively
   const innerParts = block.body.map((b) => serializeTextBlock(b));
   // Override the paragraph style to the callout variant
-  const reStyled = innerParts.map((p) =>
-    p.replace(/aid:pstyle="[^"]*"/, `aid:pstyle="${style}"`),
-  );
+  const reStyled = innerParts.map((p) => p.replace(/aid:pstyle="[^"]*"/, `aid:pstyle="${style}"`));
 
   return reStyled.join('\n');
 }
@@ -256,11 +255,13 @@ ${bodyXML}
 }
 
 function buildHeroImageXML(
-  heroImage: {
-    asset?: { metadata?: { dimensions?: { width: number; height: number } } };
-    caption?: string;
-    credit?: string;
-  } | undefined,
+  heroImage:
+    | {
+        asset?: { metadata?: { dimensions?: { width: number; height: number } } };
+        caption?: string;
+        credit?: string;
+      }
+    | undefined,
   heroImageUrl: string | undefined,
 ): string {
   if (!heroImage?.asset || !heroImageUrl) {
@@ -271,14 +272,20 @@ function buildHeroImageXML(
   const attrs = [
     `href="${escapeXML(heroImageUrl)}"`,
     dims ? `width="${dims.width}" height="${dims.height}"` : '',
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const children: string[] = [];
   if (heroImage.caption) {
-    children.push(`      <caption aid:pstyle="Image_Caption">${escapeXML(heroImage.caption)}</caption>`);
+    children.push(
+      `      <caption aid:pstyle="Image_Caption">${escapeXML(heroImage.caption)}</caption>`,
+    );
   }
   if (heroImage.credit) {
-    children.push(`      <credit aid:pstyle="Image_Credit">${escapeXML(heroImage.credit)}</credit>`);
+    children.push(
+      `      <credit aid:pstyle="Image_Credit">${escapeXML(heroImage.credit)}</credit>`,
+    );
   }
 
   if (children.length > 0) {
