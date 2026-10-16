@@ -10,7 +10,8 @@
     "functions:dev": "sanity functions dev",
     "functions:logs": "sanity functions logs --function print-export",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@sanity/blueprints": "^0.12.0",
