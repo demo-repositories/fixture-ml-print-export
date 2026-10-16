@@ -12,6 +12,9 @@
     "**/out/**",
     "**/.sanity/**",
     "**/sanity.types.ts",
+    ".github/workflows/provision-copy-dataset.yml",
+    ".github/workflows/provision-functions-deploy.yml",
+    ".github/workflows/provision-studio-deploy.yml",
     "pnpm-lock.yaml"
   ],
   "printWidth": 100,

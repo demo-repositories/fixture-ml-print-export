@@ -1,36 +1,28 @@
 {
   "actionIds": [
-    "action:c4f20218108a955b9f0b",
-    "action:35f192759ffe28a14d0e",
-    "action:acdb2d767cd8a55107f5",
-    "action:8fef71c8eb436e153cb1",
-    "action:6b7c99a01a64411dfe08",
-    "action:0dc35c8e6e27dd382557",
-    "action:cdf61a2f2abb5ad3b901",
-    "action:1f64c2e49e1c8f50c863",
-    "action:34a99138c0da7900fbe5",
-    "action:db008d29c3da282effcf",
-    "action:86be3cde08d0c1dd1b24",
-    "action:5516238bed749dc4bcdf",
-    "action:79e23a427025ad7ed5af",
-    "action:f7dd92519af4463df458",
-    "action:1834567dd60627bd1e72",
-    "action:179e4f04f2f82519fce5",
-    "action:4035a77ad16c3ebeea75",
-    "action:2809cc11ea7397280f22",
-    "action:2d1a720c021ba5fa5a4a",
-    "action:d5afa7e2e1c541ba56fc",
-    "action:176c66aa24fd49a96b61",
+    "action:69327daa21fd3a0ab568",
+    "action:c21f1912804b4b06a027",
+    "action:6b05f89c83747a1a9bb7",
+    "action:a69ad916937f4560a95d",
+    "action:f9c0663309f473184b84",
+    "action:6bc6f691671f0bb5e49c",
+    "action:ef8fd476986e736916c5",
+    "action:69267841a6d9874460f7",
+    "action:0cab0456a216c3eb0bf1",
+    "action:342baf063e5b60835dfb",
+    "action:49d552c69e1b42bbd680",
+    "action:abf77c4d4c80307b98f5",
+    "action:d143aa33808df7794dbe",
     "action:08ca076922c1887f9aad",
     "action:c3fa16e10898ff75578d"
   ],
-  "attestationId": "attestation:df4d0edb1ecda81fbdf3",
-  "baselineDigest": "686f72baeb9dc8acd892f6b9f7ed80dfc66e4cdaee12f46e9581fcc5cd7ed9ad",
-  "baselineVersion": "2026.10.15.2",
+  "attestationId": "attestation:57ccafcdf65b646112a4",
+  "baselineDigest": "27cb34bf8d74bd28f3920c018d4cf9c31a3984438e7c8c4aa95e87f31fff0bc6",
+  "baselineVersion": "2026.10.16.3",
   "binding": {
     "defaultBranch": "main",
-    "defaultHeadSha": "7b2f95d8ce251bb7268325c5d1f9ae0c5ef2082b",
-    "normalizationHeadSha": "7b2f95d8ce251bb7268325c5d1f9ae0c5ef2082b",
+    "defaultHeadSha": "2890993f6aee186728d23df47e2458e0b9b42780",
+    "normalizationHeadSha": "2890993f6aee186728d23df47e2458e0b9b42780",
     "repository": "demo-repositories/sanity-print-export"
   },
   "canonicalSurfaces": {
@@ -54,21 +46,93 @@
   ],
   "environmentBySurface": [
     {
-      "keys": [],
+      "keys": [
+        "SANITY_STUDIO_APP_ID",
+        "SANITY_STUDIO_DATASET",
+        "SANITY_STUDIO_PROJECT_ID"
+      ],
       "kind": "studio",
-      "surfaceId": "surface:868405e222d1286b92d6",
+      "surfaceId": "surface:0b72de5ebc76fd0fe55f",
       "targetDirectory": "apps/studio"
     }
   ],
-  "environmentKeys": [],
+  "environmentKeys": [
+    {
+      "denied": false,
+      "key": "SANITY_STUDIO_APP_ID",
+      "provenance": [
+        {
+          "line": 9,
+          "path": "apps/studio/sanity.cli.ts",
+          "source": "process-env-reference"
+        }
+      ],
+      "surfaces": [
+        "surface:0b72de5ebc76fd0fe55f"
+      ]
+    },
+    {
+      "denied": false,
+      "key": "SANITY_STUDIO_DATASET",
+      "provenance": [
+        {
+          "line": 28,
+          "path": "apps/studio/sanity.blueprint.ts",
+          "source": "process-env-reference"
+        },
+        {
+          "line": 6,
+          "path": "apps/studio/sanity.cli.ts",
+          "source": "process-env-reference"
+        },
+        {
+          "line": 13,
+          "path": "apps/studio/sanity.config.ts",
+          "source": "process-env-reference"
+        }
+      ],
+      "surfaces": [
+        "surface:0b72de5ebc76fd0fe55f"
+      ]
+    },
+    {
+      "denied": false,
+      "key": "SANITY_STUDIO_PROJECT_ID",
+      "provenance": [
+        {
+          "line": 28,
+          "path": "apps/studio/sanity.blueprint.ts",
+          "source": "process-env-reference"
+        },
+        {
+          "line": 32,
+          "path": "apps/studio/sanity.blueprint.ts",
+          "source": "process-env-reference"
+        },
+        {
+          "line": 5,
+          "path": "apps/studio/sanity.cli.ts",
+          "source": "process-env-reference"
+        },
+        {
+          "line": 12,
+          "path": "apps/studio/sanity.config.ts",
+          "source": "process-env-reference"
+        }
+      ],
+      "surfaces": [
+        "surface:0b72de5ebc76fd0fe55f"
+      ]
+    }
+  ],
   "functionBlueprints": [
     "apps/studio/sanity.blueprint.ts"
   ],
   "kind": "baseline-attestation",
-  "planId": "plan:b3a6d175e266f877ff12",
-  "reportId": "report:4d899e4ca7d1d6c46555",
-  "resultingRepositoryHash": "9317f9b5f9c9bbcc2e5728cc51827e849e0cbf66dc36cbc44080cadadecf8188",
+  "planId": "plan:e1f22eb6221907e028e0",
+  "reportId": "report:f3f0b02ad135a64284ea",
+  "resultingRepositoryHash": "ae74f9ab4dc951e1c2bd4e946e21a67c0fbb81280445b9c39f59e2679979805f",
   "schemaVersion": 2,
-  "sourceInventoryId": "inventory:b372ae69f6005b7c9883",
-  "sourceRepositoryHash": "f2cac20a8820ff4b1872ff972fb40e8f558eeea311775d1b0b9bcfae319a9720"
+  "sourceInventoryId": "inventory:953e48683efd7492076d",
+  "sourceRepositoryHash": "9317f9b5f9c9bbcc2e5728cc51827e849e0cbf66dc36cbc44080cadadecf8188"
 }
