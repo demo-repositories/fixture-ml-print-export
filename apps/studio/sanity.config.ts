@@ -18,13 +18,10 @@ export default defineConfig({
   },
 
   auth: {
-    providers: (prev) => [
-      ...prev,
-      {
-        name: 'saml',
-        title: 'Sanity SSO',
-        url: 'https://api.sanity.io/v2021-10-01/auth/saml/login/a9fd8216',
-      },
-    ],
+    providers: prev => process.env.SANITY_STUDIO_SSO_LOGIN_URL ? [...prev, {
+      name: 'saml',
+      title: 'Sanity SSO',
+      url: process.env.SANITY_STUDIO_SSO_LOGIN_URL
+    }] : prev,
   },
 });
