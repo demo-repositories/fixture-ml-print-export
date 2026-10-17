@@ -14,10 +14,7 @@
     "**/.sanity/**",
     "**/sanity.types.ts"
   ],
-  "plugins": [
-    "typescript",
-    "react"
-  ],
+  "plugins": ["typescript", "react"],
   "rules": {
     "no-console": "off",
     "no-unused-vars": "warn",
