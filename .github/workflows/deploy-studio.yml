@@ -38,7 +38,7 @@ jobs:
       - name: Deploy Studio
         working-directory: apps/studio
         env:
-          CI: "1"
+          CI: '1'
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
           SANITY_STUDIO_PROJECT_ID: ${{ vars.SANITY_PROJECT_ID || secrets.SANITY_PROJECT_ID }}
           SANITY_STUDIO_DATASET: ${{ vars.SANITY_DATASET || secrets.SANITY_DATASET }}

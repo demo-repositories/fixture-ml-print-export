@@ -11,17 +11,23 @@ export default defineConfig({
   projectId: process.env.SANITY_STUDIO_PROJECT_ID || '3ehlmxn3',
   dataset: process.env.SANITY_STUDIO_DATASET || 'production',
   plugins: [structureTool()],
-  mediaLibrary: {enabled: true},
+  mediaLibrary: { enabled: true },
 
   schema: {
     types: [article, author, category],
   },
 
   auth: {
-    providers: prev => process.env.SANITY_STUDIO_SSO_LOGIN_URL ? [...prev, {
-      name: 'saml',
-      title: 'Sanity SSO',
-      url: process.env.SANITY_STUDIO_SSO_LOGIN_URL
-    }] : prev,
+    providers: (prev) =>
+      process.env.SANITY_STUDIO_SSO_LOGIN_URL
+        ? [
+            ...prev,
+            {
+              name: 'saml',
+              title: 'Sanity SSO',
+              url: process.env.SANITY_STUDIO_SSO_LOGIN_URL,
+            },
+          ]
+        : prev,
   },
 });
