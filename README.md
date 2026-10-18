@@ -37,26 +37,26 @@ The layout team downloads the XML from Sanity Studio and imports it into an InDe
 ## Setup
 
 ```bash
-npm install
+pnpm install
 ```
 
 ## Development
 
 ```bash
 # Run tests
-npm test
+pnpm test
 
 # Generate sample XML output
-npx tsx test/generate-sample.ts
+pnpm dlx tsx test/generate-sample.ts
 
 # Local function development
-npm run functions:dev
+pnpm --filter ./apps/studio functions:dev
 
 # Deploy function
-npm run deploy:functions
+pnpm --filter ./apps/studio deploy:functions
 
 # Stream function logs
-npm run functions:logs
+pnpm --filter ./apps/studio functions:logs
 ```
 
 ## Configuration
