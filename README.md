@@ -93,3 +93,7 @@ And these character styles (`aid:cstyle`):
 | `Code` | Inline code |
 
 Create these styles in the InDesign template, then use **Map Tags to Styles** to link them.
+
+## Deploy Studio changes
+
+Sign in with `pnpm exec sanity login`. Then run `pnpm deploy:studio`. Vercel deploys frontends automatically when you push to `main`.
