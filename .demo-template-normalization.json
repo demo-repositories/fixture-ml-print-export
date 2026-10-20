@@ -1,29 +1,28 @@
 {
   "actionIds": [
-    "action:2a048d39ed5f50d36f95",
-    "action:ae7543dc8008630bc92c",
-    "action:6b05f89c83747a1a9bb7",
+    "action:68746e2530a1bafbe501",
+    "action:86a4854011406546e1c7",
     "action:a69ad916937f4560a95d",
     "action:f9c0663309f473184b84",
     "action:a6ee96dafcd52422108c",
-    "action:9e0aceb3c8bb2299c5c8",
-    "action:5c69a864a545e4c0eab4",
-    "action:e290f2964900be11c9da",
-    "action:a339aebafe22f0a53a7b",
-    "action:976c6b865acfbd95bccd",
-    "action:ee2a3dc5bdf2cb17c0fe",
-    "action:89f351337bb560e36f40",
+    "action:b4a11fe945512ad05a52",
+    "action:7eaf1dfc1701edc485f0",
+    "action:f2a12b9e58febf1afcae",
+    "action:c4f88a699683279b63b0",
+    "action:bca169f23d4687f454d8",
+    "action:5814e57ed1fccd1036ba",
+    "action:f375c5fd77dfd4fd68a6",
     "action:08ca076922c1887f9aad",
     "action:7634a1f7888a049ff09e"
   ],
-  "attestationId": "attestation:be3cfb11674386c3b5da",
-  "baselineDigest": "bb39bea4727794b8db75f8fc91996b19c12958f5564d716b8650bbc2ba61a972",
-  "baselineVersion": "2026.10.16.9",
+  "attestationId": "attestation:d6987bbac5cf4f0d1626",
+  "baselineDigest": "7a759b0a11a3866ea7216c45f802e30fa070a632210daa4012dff35c70b27f35",
+  "baselineVersion": "2026.10.16.14",
   "binding": {
     "defaultBranch": "main",
-    "defaultHeadSha": "33c7da645f694dda8b968976c1673389554b172c",
-    "normalizationHeadSha": "33c7da645f694dda8b968976c1673389554b172c",
-    "repository": "demo-repositories/fixture-ml-print-export"
+    "defaultHeadSha": "33a14366b2213f423030259c6b69e24bc4a6876a",
+    "normalizationHeadSha": "33a14366b2213f423030259c6b69e24bc4a6876a",
+    "repository": "sanity-labs/fixture-ml-print-export"
   },
   "canonicalSurfaces": {
     "sdkApps": [],
@@ -49,10 +48,11 @@
       "keys": [
         "SANITY_STUDIO_APP_ID",
         "SANITY_STUDIO_DATASET",
-        "SANITY_STUDIO_PROJECT_ID"
+        "SANITY_STUDIO_PROJECT_ID",
+        "SANITY_STUDIO_SSO_LOGIN_URL"
       ],
       "kind": "studio",
-      "surfaceId": "surface:dff069046e7b78da7034",
+      "surfaceId": "surface:c7a04f12c84e21f9df67",
       "targetDirectory": "apps/studio"
     }
   ],
@@ -73,7 +73,7 @@
         }
       ],
       "surfaces": [
-        "surface:dff069046e7b78da7034"
+        "surface:c7a04f12c84e21f9df67"
       ]
     },
     {
@@ -102,7 +102,7 @@
         }
       ],
       "surfaces": [
-        "surface:dff069046e7b78da7034"
+        "surface:c7a04f12c84e21f9df67"
       ]
     },
     {
@@ -136,7 +136,31 @@
         }
       ],
       "surfaces": [
-        "surface:dff069046e7b78da7034"
+        "surface:c7a04f12c84e21f9df67"
+      ]
+    },
+    {
+      "denied": false,
+      "key": "SANITY_STUDIO_SSO_LOGIN_URL",
+      "provenance": [
+        {
+          "line": 14,
+          "path": "apps/studio/.env.example",
+          "source": "existing-example"
+        },
+        {
+          "line": 22,
+          "path": "apps/studio/sanity.config.ts",
+          "source": "process-env-reference"
+        },
+        {
+          "line": 28,
+          "path": "apps/studio/sanity.config.ts",
+          "source": "process-env-reference"
+        }
+      ],
+      "surfaces": [
+        "surface:c7a04f12c84e21f9df67"
       ]
     }
   ],
@@ -144,10 +168,10 @@
     "apps/studio/sanity.blueprint.ts"
   ],
   "kind": "baseline-attestation",
-  "planId": "plan:3b2a10f980e5b40e8756",
-  "reportId": "report:debd364f4e4d07c44761",
-  "resultingRepositoryHash": "ea7812479368f73a1e9298990d5c4bc712a2764db05c5fec80bc87f26298f17e",
+  "planId": "plan:b20219f0dc09727baeb7",
+  "reportId": "report:e4450ca5b296fde1edc4",
+  "resultingRepositoryHash": "86efbb59efe89673c90e53f8a16f3a3dbbe39d3d7759138976817b4816305057",
   "schemaVersion": 2,
-  "sourceInventoryId": "inventory:5dd0d5f19f8c22ff3422",
-  "sourceRepositoryHash": "e1ecd499d7eadca505fc0b9b50bbc73ce8cd00975d2418a917aea288ff897585"
+  "sourceInventoryId": "inventory:a8169d7f1c8cdb96a98f",
+  "sourceRepositoryHash": "ea7812479368f73a1e9298990d5c4bc712a2764db05c5fec80bc87f26298f17e"
 }

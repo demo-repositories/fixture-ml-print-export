@@ -3,6 +3,7 @@
   "scripts": {
     "build": "pnpm --recursive --if-present build",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "deploy:studio": "if [ ! -f apps/studio/.env.local ]; then echo \"Missing apps/studio/.env.local. Download the local environment bundle from Demo Library.\" >&2; exit 1; fi; export SANITY_STUDIO_HOST=\"$(node -e 'const {readFileSync}=require(\"node:fs\");const {parseEnv}=require(\"node:util\");process.stdout.write(parseEnv(readFileSync(\"apps/studio/.env.local\", \"utf8\")).SANITY_STUDIO_HOST ?? \"\")')\"; if [ -z \"$SANITY_STUDIO_HOST\" ]; then echo \"Missing SANITY_STUDIO_HOST in apps/studio/.env.local. Download a new local environment bundle from Demo Library.\" >&2; exit 1; fi; pnpm --dir apps/studio exec sanity deploy --url \"$SANITY_STUDIO_HOST\" --yes",
     "dev": "pnpm --parallel --recursive --if-present dev",
     "format": "oxfmt .",
     "format:check": "oxfmt --check .",
