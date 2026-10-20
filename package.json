@@ -1,12 +1,4 @@
 {
-  "devDependencies": {
-    "oxfmt": "0.66.0",
-    "oxlint": "1.81.0"
-  },
-  "engines": {
-    "node": ">=22.23.2"
-  },
-  "packageManager": "pnpm@10.34.5",
   "private": true,
   "scripts": {
     "build": "pnpm --recursive --if-present build",
@@ -19,5 +11,13 @@
     "lint:fix": "oxlint --fix .",
     "test": "pnpm --recursive --if-present test",
     "typecheck": "pnpm --recursive --if-present typecheck"
-  }
+  },
+  "devDependencies": {
+    "oxfmt": "0.66.0",
+    "oxlint": "1.81.0"
+  },
+  "engines": {
+    "node": ">=22.23.2"
+  },
+  "packageManager": "pnpm@10.34.5"
 }
